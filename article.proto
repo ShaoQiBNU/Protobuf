@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+message Article {
+   int32 article_id = 1; // ------article id
+   string article_excerpt = 2; // ------article id
+   repeated string article_picture = 3; // ------article id
+   int32 article_pagecount = 4; // ------article id
+
+  enum ArticleType {
+    NOVEL = 0;
+    PROSE = 1;
+    PAPER = 2;
+    POETRY = 3;
+  }
+
+   ArticleType article_type = 5; // -------article type
+
+   message Author {
+     string name = 1; //作者的名字
+     string phone = 2; // 作者电话
+  }
+
+   Author author = 6; // ------article id
+   reserved  9, 10, 12 to 15; // ------保留标签
+}
+
+message Other {
+   string other_info = 1; // ------other info
+
+   oneof test_oneof {
+    string code1 = 2;
+    string code2 = 3;
+  }
+}
